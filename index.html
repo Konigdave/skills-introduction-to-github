@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Random Neon Card</title>
+
+  <style>
+    body {
+      margin: 0;
+      height: 100vh;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      background: linear-gradient(135deg, #0f172a, #1e293b);
+      font-family: Arial, sans-serif;
+      overflow: hidden;
+    }
+
+    .card {
+      width: 320px;
+      padding: 30px;
+      border-radius: 20px;
+      background: rgba(255,255,255,0.08);
+      backdrop-filter: blur(10px);
+      color: white;
+      text-align: center;
+      box-shadow: 0 0 25px rgba(0,255,255,0.3);
+      transition: transform 0.3s ease;
+    }
+
+    .card:hover {
+      transform: scale(1.05) rotate(1deg);
+    }
+
+    h1 {
+      margin-bottom: 10px;
+      font-size: 2rem;
+      color: #67e8f9;
+    }
+
+    p {
+      color: #cbd5e1;
+      line-height: 1.5;
+    }
+
+    button {
+      margin-top: 20px;
+      padding: 12px 20px;
+      border: none;
+      border-radius: 10px;
+      background: #06b6d4;
+      color: white;
+      cursor: pointer;
+      font-size: 1rem;
+      transition: background 0.3s;
+    }
+
+    button:hover {
+      background: #0891b2;
+    }
+
+    .circle {
+      position: absolute;
+      border-radius: 50%;
+      opacity: 0.2;
+      animation: float 6s infinite ease-in-out;
+    }
+
+    .circle:nth-child(1) {
+      width: 200px;
+      height: 200px;
+      background: cyan;
+      top: 10%;
+      left: 15%;
+    }
+
+    .circle:nth-child(2) {
+      width: 150px;
+      height: 150px;
+      background: magenta;
+      bottom: 10%;
+      right: 15%;
+      animation-delay: 2s;
+    }
+
+    @keyframes float {
+      0%, 100% {
+        transform: translateY(0px);
+      }
+      50% {
+        transform: translateY(-20px);
+      }
+    }
+  </style>
+</head>
+
+<body>
+
+  <div class="circle"></div>
+  <div class="circle"></div>
+
+  <div class="card">
+    <h1>Hello World</h1>
+    <p>
+      This is a random futuristic HTML card with glowing effects,
+      floating shapes, and interactive styling.
+    </p>
+
+    <button onclick="changeText()">
+      Click Me
+    </button>
+  </div>
+
+  <script>
+    function changeText() {
+      const messages = [
+        "You clicked the button!",
+        "HTML + CSS + JS is fun 🚀",
+        "Random message generated!",
+        "Welcome to the neon future ✨"
+      ];
+
+      const random =
+        messages[Math.floor(Math.random() * messages.length)];
+
+      document.querySelector("p").innerText = random;
+    }
+  </script>
+
+</body>
+</html>
